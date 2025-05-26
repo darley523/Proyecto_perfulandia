@@ -3,7 +3,7 @@ PATH servicios
 MÉTODO GET
 
 GET api/usuarios -> Listar todos los usuarios
-GET api/usuarios/{id} -> Mostrar los datos del usuario con id :{id}
+GET api/usuarios/{id} -> Mostrar los datos del usuario segun su id
 GET api/productos -> Listar todos los productos
 GET api/productos/{id} -> Mostrar los datos de un producto segun su id
 GET api/boletas -> Listar todas las boletas
