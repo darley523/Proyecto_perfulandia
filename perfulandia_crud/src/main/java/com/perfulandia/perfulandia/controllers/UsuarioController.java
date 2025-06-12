@@ -32,8 +32,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> verDetalle(@PathVariable Long id){
-        Optional<Usuario> usuarioOptional = service.findById(id);
+    public ResponseEntity<?> verDetalle(@PathVariable String rut){
+        Optional<Usuario> usuarioOptional = service.findById(rut);
         if (usuarioOptional.isPresent()){
             return ResponseEntity.ok(usuarioOptional.orElseThrow());
         }
@@ -46,8 +46,8 @@ public class UsuarioController {
     }}
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar (@PathVariable Long id, @RequestBody Usuario user){
-        Optional<Usuario> usuarioOptional = service.findById(id);
+    public ResponseEntity<?> modificar (@PathVariable String rut, @RequestBody Usuario user){
+        Optional<Usuario> usuarioOptional = service.findById(rut);
         if(usuarioOptional.isPresent()){
             Usuario userExistente = usuarioOptional.get();
             userExistente.setNombre(user.getNombre());
@@ -61,9 +61,9 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar (@PathVariable Long id){
+    public ResponseEntity<?> eliminar (@PathVariable String rut){
         Usuario user = new Usuario();
-        user.setId(id);
+        user.setRut(rut);
         Optional<Usuario> userOptional = service.delete(user);
         if(userOptional.isPresent()){
             return ResponseEntity.ok(userOptional.orElseThrow());

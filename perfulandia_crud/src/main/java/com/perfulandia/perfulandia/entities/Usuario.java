@@ -36,7 +36,7 @@ public class Usuario {
 
     //GETTERS AND SETTERS
 
-    public String getrut() {
+    public String getRut() {
         return rut;
     }
 

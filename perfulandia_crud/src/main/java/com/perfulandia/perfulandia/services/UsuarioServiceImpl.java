@@ -27,15 +27,15 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Usuario> findById(Long id) {
+    public Optional<Usuario> findById(String rut) {
 
-        return repo.findById(id);
+        return repo.findById(rut);
     }
 
     @Override
     @Transactional
     public Optional<Usuario> delete(Usuario user) {
-        Optional<Usuario> usuarioOptional = repo.findById(user.getId());
+        Optional<Usuario> usuarioOptional = repo.findById(user.getRut());
         usuarioOptional.ifPresent(usuarioDb ->{
             repo.delete(user);
         });

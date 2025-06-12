@@ -9,7 +9,7 @@ public interface UsuarioService {
 
     List<Usuario> findByAll();
 
-    Optional<Usuario> findById(Long id);
+    Optional<Usuario> findById(String rut);
 
     Usuario save(Usuario user);
 
