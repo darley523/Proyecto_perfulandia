@@ -1,8 +1,8 @@
 package com.perfulandia.perfulandia.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,9 +12,8 @@ import jakarta.persistence.Table;
 public class Usuario {
     //ATRIBUTOS
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    private Long id;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String rut;
     private String nombre;
     private String email;
     private String contrasena;
@@ -26,8 +25,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String nombre, String contrasena, String rol, String email) {
-        this.id = id;
+    public Usuario(String rut, String nombre, String contrasena, String rol, String email) {
+        this.rut = rut;
         this.nombre = nombre;
         this.email = email;
         this.contrasena = contrasena;
@@ -37,12 +36,12 @@ public class Usuario {
 
     //GETTERS AND SETTERS
 
-    public Long getId() {
-        return id;
+    public String getRut() {
+        return rut;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRut(String rut) {
+        this.rut = rut;
     }
 
     public String getNombre() {
