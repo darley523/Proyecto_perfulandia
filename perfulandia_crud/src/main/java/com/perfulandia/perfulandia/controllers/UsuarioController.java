@@ -31,7 +31,7 @@ public class UsuarioController {
         return service.findByAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{rut}")
     public ResponseEntity<?> verDetalle(@PathVariable String rut){
         Optional<Usuario> usuarioOptional = service.findById(rut);
         if (usuarioOptional.isPresent()){
@@ -45,7 +45,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(user));
     }}
 
-    @PutMapping("/{id}")
+    @PutMapping("/{rut}")
     public ResponseEntity<?> modificar (@PathVariable String rut, @RequestBody Usuario user){
         Optional<Usuario> usuarioOptional = service.findById(rut);
         if(usuarioOptional.isPresent()){
@@ -60,7 +60,7 @@ public class UsuarioController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{rut}")
     public ResponseEntity<?> eliminar (@PathVariable String rut){
         Usuario user = new Usuario();
         user.setRut(rut);
